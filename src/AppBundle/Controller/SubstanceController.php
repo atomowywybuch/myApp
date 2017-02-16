@@ -97,5 +97,22 @@ class SubstanceController extends Controller
     ));
   }
 
+  /**
+  * @Route("/substance/details/{id}", name="substance_details")
+  */
+
+  public function detailsAction($id)
+  {
+    $substance = $this->getDoctrine()
+      ->getRepository('AppBundle:substances')
+      ->find($id);
+
+    return $this->render('substance/details.html.twig', array(
+      'substance' => $substance
+
+    ));
+
+
+  }
 
 }

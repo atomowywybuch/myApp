@@ -22,11 +22,16 @@
           <td>{{substance.cas}}</td>
           <td>{{substance.we}}</td>
           <td>{{substance.vpressure}}</td>
+          <td>
+            <a href="/substance/details/{{substance.id}}" class="btn btn-success">Podgląd</a>
+            <a href="" class="btn btn-default">Edycja</a>
+            <a href="" class="btn btn-danger">Usuń</a>
+          </td>
 
         </tr>
         {% endfor %}
 
       </tbody>
     </table>
-  
+
 {% endblock %}
