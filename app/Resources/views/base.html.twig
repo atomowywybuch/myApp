@@ -3,11 +3,36 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+        {% block stylesheets %}
+
+      {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+      <div class="container">
+      <h1>bootstrap test</h1>
+      <i class="fa fa-car fa-3x" aria-hidden="true"></i>
+      </div>
+      <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>column1</h2>
+          <i class="fa fa-battery-three-quarters fa-3x" aria-hidden="true"></i>
+        </div>
+        <div class="col-md-6">
+          <h2>column2</h2>
+          <i class="fa fa-university fa-3x" aria-hidden="true"></i>
+        </div>
+      </div>
+      </div>
+        {% block body %}
+
+      {% endblock %}
+        {% block javascripts %}
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="{{ asset('js/main.js') }}"></script>{% endblock %}
     </body>
 </html>
