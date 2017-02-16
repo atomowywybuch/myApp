@@ -31,5 +31,21 @@ class SubstanceController extends Controller
     return new Response('test created');
   }
 
+  /**
+  * @Route("/substance")
+  */
+
+  public function listAction()
+  {
+    $substances = $this->getDoctrine()
+      ->getRepository('AppBundle:substances')
+      ->findAll();
+
+    return $this->render('substance/index.html.twig', array(
+      'substances' => $substances
+
+    ));
+  }
+
 
 }
