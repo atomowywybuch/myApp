@@ -17,10 +17,12 @@ class SubstanceController extends Controller
   * @Route("/substance/create", name="substance_create")
   */
 
+  //Create new substance
   public function createAction(Request $request)
   {
     $substance = new substances;
 
+    //Generate Form for new Substance
     $form = $this->createFormBuilder($substance)
       ->add('name')
       ->add('cas', TextType::class, array('attr' =>array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
@@ -29,33 +31,41 @@ class SubstanceController extends Controller
       ->add('Save', SubmitType::class, array('label'=> 'Stwórz', 'attr' =>array('class' => 'btn-primary', 'style' => 'margin-bottom:15px')))
       ->getForm();
 
+    //Take data from the form after clicking submit
     $form->handleRequest($request);
 
+    //Validate that data are correct
     if($form->isSubmitted() && $form->isValid()){
+
+      //assign data from the Form to variables
       $name = $form['name']->getData();
       $cas = $form['cas']->getData();
       $we = $form['we']->getData();
       $vpressure = $form['vpressure']->getData();
 
+      //pass data from variables to substance object
       $substance->setName($name);
       $substance->setCas($cas);
       $substance->setWe($we);
       $substance->setVpressure($vpressure);
 
+      //execute database insert
       $em = $this->getDoctrine()->getManager();
       $em->persist($substance);
       $em->flush();
 
+      //success notification
       $this->addFlash(
         'notice',
         'Substancja dodana'
       );
 
+      //return to list
       return $this->redirectToRoute('substance_list');
     }
 
 
-
+    //if not submitted or not valid, displays form again
     return $this->render('substance/create.html.twig', array(
       'form' =>$form->createView()
     ));
@@ -65,12 +75,14 @@ class SubstanceController extends Controller
   * @Route("/substance", name="substance_list")
   */
 
+  //List substances
   public function listAction()
   {
+    //Gets all substances to the object substances
     $substances = $this->getDoctrine()
       ->getRepository('AppBundle:substances')
       ->findAll();
-
+    //passess the substances object to the view
     return $this->render('substance/list.html.twig', array(
       'substances' => $substances
 
@@ -81,12 +93,14 @@ class SubstanceController extends Controller
   * @Route("/substance/details/{id}", name="substance_details")
   */
 
+  //View substance details based on clicked button
   public function detailsAction($id)
   {
+    //Takes the substance and passes to substance object
     $substance = $this->getDoctrine()
       ->getRepository('AppBundle:substances')
       ->find($id);
-
+    //passess the object to the view
     return $this->render('substance/details.html.twig', array(
       'substance' => $substance
 
@@ -97,17 +111,21 @@ class SubstanceController extends Controller
   * @Route("/substance/edit/{id}")
   */
 
+  //edit certain substance based on button clicked, passess the changes through request
   public function editAction($id, Request $request)
   {
+    //Takes the substance and passes to substance object
     $substance = $this->getDoctrine()
       ->getRepository('AppBundle:substances')
       ->find($id);
 
+      //This to be modified
       $substance->setName($substance->getName());
       $substance->setCas($substance->getCas());
       $substance->setWe($substance->getWe());
       $substance->setVpressure($substance->getVpressure());
 
+      //Generate Form for new Substance
       $form = $this->createFormBuilder($substance)
         ->add('name')
         ->add('cas', TextType::class, array('attr' =>array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
@@ -116,34 +134,42 @@ class SubstanceController extends Controller
         ->add('Save', SubmitType::class, array('label'=> 'Zapisz', 'attr' =>array('class' => 'btn-primary', 'style' => 'margin-bottom:15px')))
         ->getForm();
 
+      //Take data from the form after clicking submit
       $form->handleRequest($request);
 
+      //Validate that data are correct
       if($form->isSubmitted() && $form->isValid()){
+
+        //assign data from the Form to variables
         $name = $form['name']->getData();
         $cas = $form['cas']->getData();
         $we = $form['we']->getData();
         $vpressure = $form['vpressure']->getData();
 
+        //find the right substance
         $em = $this->getDoctrine()->getManager();
         $substance = $em->getRepository('AppBundle:substances')->find($id);
 
+        //prepare data modification
         $substance->setName($name);
         $substance->setCas($cas);
         $substance->setWe($we);
         $substance->setVpressure($vpressure);
 
-
-
+        //execute data modification
         $em->flush();
 
+        //success notodication
         $this->addFlash(
           'notice',
           'Substancja zmieniona'
         );
 
+        //return to list
         return $this->redirectToRoute('substance_list');
       }
 
+    //if not submitted or not valid, displays form again
     return $this->render('substance/edit.html.twig', array(
       'substance' => $substance,
       'form' => $form->createView()
@@ -154,14 +180,18 @@ class SubstanceController extends Controller
   * @Route("/substance/delete/{id}")
   */
 
+  //Delete chosen substance
   public function deleteAction($id)
   {
+    //find the substance
     $em = $this->getDoctrine()->getManager();
     $substance = $em->getRepository('AppBundle:substances')->find($id);
 
+    //prepare and execute delete command
     $em->remove($substance);
     $em->flush();
 
+    //success notification
     $this->addFlash(
       'notice',
       'Substancja usunięta'

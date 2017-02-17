@@ -5,12 +5,354 @@
 
     <a class="btn btn-success" href="/substance">Powrót do listy</a>
     <hr>
-    <h2 class="page-header">Substancja: {{substance.name}}</h2>
-    <ul class="list-group">
-      <li class="list-group-item">CAS: {{substance.cas}}</li>
-      <li class="list-group-item">WE: {{substance.we}}</li>
-      <li class="list-group-item">Prężność pary: {{substance.vpressure}}</li>
-    </ul>
+    <h2 class="page-header"><strong>Substancja:</strong> {{substance.name}}</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item"><strong>CAS:</strong> {{substance.cas}}</li>
+          <li class="list-group-item"><strong>WE:</strong> {{substance.we}}</li>
+          <li class="list-group-item"><strong>Prężność pary:</strong> {{substance.vpressure}}</li>
+        </ul>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>CAS:</strong> {{substance.cas}}</li>
+          <li class="list-group-item"><strong>WE:</strong> {{substance.we}}</li>
+          <li class="list-group-item"><strong>Prężność pary:</strong> {{substance.vpressure}}</li>
+        </ul>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>CAS:</strong> {{substance.cas}}</li>
+          <li class="list-group-item"><strong>WE:</strong> {{substance.we}}</li>
+          <li class="list-group-item"><strong>Prężność pary:</strong> {{substance.vpressure}}</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+
+          <div class="panel-heading main-color-bg">
+            <h3 class="panel-title">Oznaczenia</h3>
+          </div>
+
+          <div class="panel-body">
+            <div class="row">
+
+              <div class="col-md-12">
+                <div class="well dash-box">
+
+                  <img src="{{ asset('img/T toxic.jpg') }}"></img>
+                  <hr>
+
+                  <ul class="list-group">
+                    <li class="list-group-item">Klasyfikacja substancji:<strong>Toksyczne</strong></li>
+                    <li class="list-group-item">Symbol zagrożenia:<strong>T</strong></li>
+                    <li class="list-group-item"><strong>Zagrożenie:</strong>
+                      <p>Wdychanie, wprowadzenie przez przewód
+                            pokarmowy oraz penetracja tych substancji i
+                            mieszanin poprzez skórę stanowi zagrożenie dla
+                            zdrowia, mogą powodować uczulenie. Mogą
+                            działać w sposób odwracalny lub nieodwracalny;
+                            długotrwała ekspozycja na te substancje może
+                            spowodować nieodwracalne szkody w organizmie.</p>
+                    </li>
+                    <li class="list-group-item"><strong>Środki ostrożności:</strong>
+                      <p>Unikać kontaktu z tymi substancjami i
+                            mieszaninami, w szczególności wdychania par, a w
+                            wypadku objawów zatrucia zgłosić się po poradę do
+                            lekarza.
+                            </p>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="well dash-box">
+
+                  <img src="{{ asset('img/C corosive.jpg') }}"></img>
+                  <hr>
+
+                  <ul class="list-group">
+                    <li class="list-group-item">Klasyfikacja substancji:
+                      <strong>
+                        Żrące
+                      </strong>
+                    </li>
+                    <li class="list-group-item">Symbol zagrożenia:
+                      <strong>
+                        C
+                      </strong></li>
+                    <li class="list-group-item"><strong>Zagrożenie:</strong>
+                      <p>
+                        Substancje i mieszaniny powodująca poważne
+                        oparzenia tkanek skóry.
+                      </p>
+                    </li>
+                    <li class="list-group-item"><strong>Środki ostrożności:</strong>
+                      <p>
+                        Nie wdychać oparów, unikać kontaktu ze skórą,
+                        chronić oczy i odzież.
+                      </p>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="well dash-box">
+
+                  <img src="{{ asset('img/Xi irritant.jpg') }}"></img>
+                  <hr>
+
+                  <ul class="list-group">
+                    <li class="list-group-item">Klasyfikacja substancji:
+                      <strong>
+                        Drażniące
+                      </strong>
+                    </li>
+                    <li class="list-group-item">Symbol zagrożenia:
+                      <strong>
+                        Xi
+                      </strong>
+                    </li>
+                    <li class="list-group-item"><strong>Zagrożenie:</strong>
+                      <p>
+                        Substancje i mieszaniny które działają drażniąco na
+                        skórę, oczy i układ oddechowy.
+                      </p>
+                    </li>
+                    <li class="list-group-item"><strong>Środki ostrożności:</strong>
+                      <p>
+                        Nie wdychać oparów, unikać kontaktu ze skórą,
+                        chronić oczy.
+                      </p>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="well dash-box">
+
+                  <img src="{{ asset('img/N niebezpieczna.jpg') }}"></img>
+                  <hr>
+
+                  <ul class="list-group">
+                    <li class="list-group-item">Klasyfikacja substancji:
+                      <strong>
+                        Niebezpieczne dla środowiska
+                      </strong>
+                    </li>
+                    <li class="list-group-item">Symbol zagrożenia:
+                      <strong>
+                        N
+                      </strong>
+                    </li>
+                    <li class="list-group-item"><strong>Zagrożenie:</strong>
+                      <p>
+                        Substancje i mieszaniny niebezpieczne dla
+                        środowiska wodnego (woda, żyjące w niej
+                        organizmy), lądowego (fauna, flora), o
+                        długotrwałym efekcie szkodliwego działania w
+                        środowisku.
+                      </p>
+                    </li>
+                    <li class="list-group-item"><strong>Środki ostrożności:</strong>
+                      <p>
+                        Unikać wprowadzania tych substancji do
+                        środowiska.
+                      </p>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+
+          <div class="panel-heading main-color-bg">
+            <h3 class="panel-title">Środki bezpieczeństwa i odziaływanie na środowisko </h3>
+          </div>
+
+          <div class="panel-body">
+            <div class="row">
+
+              <div class="col-md-12">
+                <div class="well dash-box">
+
+                  <img src="{{ asset('img/amoniak.jpg') }}"></img>
+                  <h1>Amoniak</h1>
+                  <hr>
+
+                  <ul class="list-group">
+
+                    <li class="list-group-item"><strong>Charakterystyka: </strong>
+                      <p>Jest gazem bezbarwnym, silnie żrącym, trującym i palnym w każdej temperaturze.
+                        W zetknięciu z niektórymi substancjami stwarza zagrożenie wybuchowe.
+                        Jest lżejszyod powietrza, co sprzyja gromadzeniu się go w górnych partiach pomieszczeń.
+                        Działa silnie drażniąco na błony śluzowe dróg oddechowych, oczy i na skórę. Wywołuje przykre
+                        uczucie pieczenia w gardle, kaszel, ślinotok, nudności, łzawienie, bóle głowy. Przy wyższych stężeniach
+                         wywołuje obrzęk płuc, niewydolność krążenia, zapaść i śmierć. Roztwory wodne są żrące i trujące.</p>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>
+                        Pomoc lekarska.
+                      </strong>
+                      <p>
+                          Pomoc lekarska.
+                          1. Wynieść poszkodowanego na świeże powietrze;
+                          2. W przypadku duszności podawać tlen;
+                          3. Drogą doustną podać rozcieńczony roztwór kwasu octowego;
+                          4. Oparzoną skórę zlać obficie wodą;
+                            </p>
+                    </li>
+
+                    <li class="list-group-item">
+                      <strong>
+                        Odziaływanie na środowisko:
+                      </strong>
+                      <p>
+                      </p>
+                    </li>
+
+                  </ul>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="panel panel-default">
+
+          <div class="panel-heading main-color-bg">
+            <h3 class="panel-title">Środki bezpieczeństwa i odziaływanie na środowisko </h3>
+          </div>
+
+          <div class="panel-body">
+            <div class="row">
+
+              <div class="col-md-12">
+                <div class="well dash-box">
+
+                  <img src="{{ asset('img/h2so4.png') }}"></img>
+                  <img src="{{ asset('img/h2so4-2.png') }}"></img>
+                  <h1>Kwas siarkowy</h1>
+                  <hr>
+
+                  <ul class="list-group">
+
+                    <li class="list-group-item"><strong>Charakterystyka: </strong>
+                      <p>W warunkach normalnych kwas siarkowy 92% jest bezbarwną oleistą cieczą, o właściwościach żrących.
+                        Kwas siarkowy dobrze rozpuszcza się w wodzie i miesza sięz nią w każdym stosunku z wydzielaniem dużej ilości ciepła.
+                        Należy do środków silnie szkodliwych i niebezpiecznych dla zdrowia. Na wszystkie tkanki działa silnie drażniącooraz żrąco.
+                        Wchłania się do organizmu przez drogi oddechowe i układ pokarmowy.
+                        Oblanie dużej powierzchni ciała kwasem 92% może spowodować wstrząs.
+                      </p>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>
+                        Pomoc lekarska.
+                      </strong>
+                      <p>
+                        Pod pojęciem pierwszej pomocy należy rozumieć czynności mające na celu ratowanie człowieka,
+                        dotkniętego działaniem kwasu siarkowego 92% które należy wykonać, zanim nastąpi pomoc lekarska.
+                        Poszkodowaną osobę należy jak najszybciej usunąć ze skażonego środowiska, przenieś na świeże powietrze,
+                        zdjąć skażoną odzież, ciepło okryć i zapewnić bezwzględny spokój (groźba obrzęku płuc).
+                        Przy zatruciu wziewnym należy utrzymać drożność dróg oddechowych. Przy zatruciu doustnym należ osobie przytomnej podać
+                        do picia duże ilości wody i powodować wymioty. Następnie podawać białka
+                        z 2-3 białej jajka kurzego z jak najmniejszą ilością wody lub mleka.
+                      </p>
+                    </li>
+
+                    <li class="list-group-item">
+                      <strong>
+                        Odziaływanie na środowisko:
+                      </strong>
+                      <p>
+                      </p>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="well dash-box">
+
+                  <img src="{{ asset('img/hno3.png') }}"></img>
+                  <img src="{{ asset('img/hno3-2.png') }}"></img>
+                  <h1>Kwas azotowy</h1>
+                  <hr>
+
+                  <ul class="list-group">
+
+                    <li class="list-group-item"><strong>Charakterystyka: </strong>
+                      <p>Kwas azotowy 100% jest w warunkach normalnych bezbarwną, ruchliwą cieczą
+                        o specyficznym zapachu, zabarwiającą się czasem na kolor żółty w skutek zachodzących procesów rozkładu,
+                        z wydzieleniem dwutlenku azotu. Kwas azotowy jest mocnym kwasem, substancją niepalną.
+                        Posiada właściwości silnie utleniające. Kwas azotowy
+                        w zetknięciu z alkoholem etylowym i terpentyną wybucha. W reakcjach z metalami,
+                        niemetalami i wieloma związkami ulega redukcji do dwutlenku lub tlenku azotu,
+                        utleniając te metale (z wyjątkiem metali szlachetnych).
+                        Kwas azotowy należy do środków silnie szkodliwych i niebezpiecznych dla zdrowia.
+                        Na wszystkie tkanki działa silnie toksycznie, drażniąco oraz żrąco.
+                      </p>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>
+                        Pomoc lekarska.
+                      </strong>
+                      <p>
+                        Osobę poszkodowaną jak najszybciej wynieść ze skażonego środowiska na świeże powietrze.
+                        Zdjąć skażoną odzież, ciepło okryć i zapewnić bezwzględny spokój.
+                        Przy zatruciach wziewnych należy utrzymać drożność dróg oddechowych,
+                        potem wygarnąć śluz z jamy ustnej lub gardła. Wykonać inhalację sodą lub parami alkoholu,
+                        eteru, chlorofromu, 10% roztworu metanolu w chloroformie.
+                        Przy zatruciu doustnym osobie przytomnej natychmiast podać do wypicia duże ilości.
+                      </p>
+                    </li>
+
+                    <li class="list-group-item">
+                      <strong>
+                        Odziaływanie na środowisko:
+                      </strong>
+                      <p>
+                        Duże ilości kwasu azotowego należy obwałować i w miarę możliwości jak najszybciej odpompować kwasoodporną pompą
+                        do zbiornika wykonanego z kwasoodpornej stali lub pojemników kamionkowych.
+                         Pozostałość starać się zebrać mechanicznie (również za pomocą suchego piasku użytego jako sorbent)
+                        do szczelnych pojemników ze stali kwasoodpornej lub naczyń kamionkowych. Resztki pokryć wodą wapienną
+                        w celu neutralizacji. Skażoną ziemię zebrać do pojemników
+                        i odtransportować do miejsca neutralizacji. Do neutralizacji można stosować sproszkowany kamień wapienny
+                        (kreda, dolomit), roztwór sody lub roztwór około 10% mleka wapiennego.
+                      </p>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          </div>
+      </div>
+
+    </div>
 
 
 
