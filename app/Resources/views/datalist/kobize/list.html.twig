@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="page-header">Kobize</h2>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>numer</th>
+          <th>Nazwa</th>
+          <th>CAS</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for kobize in kobize  %}
+        <tr>
+
+          <td>{{kobize.number}}</td>
+          <td>{{kobize.name}}</td>
+          <td>{{kobize.cas}}</td>
+
+          <td>
+            <a href="/substance/details/{{kobize.id}}" class="btn btn-success">Podgląd</a>
+            <a href="/substance/edit/{{kobize.id}}" class="btn btn-default">Edycja</a>
+            <a href="/substance/delete/{{kobize.id}}" class="btn btn-danger">Usuń</a>
+          </td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+{% endblock %}
