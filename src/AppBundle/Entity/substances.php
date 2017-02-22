@@ -12,6 +12,19 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class substances
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\datalist\_env_usage", inversedBy="substance")
+     * @ORM\JoinColumn(name="env_usage_id", referencedColumnName="id")
+     */
+    private $env_usage;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\datalist\_druglike", inversedBy="substance")
+     * @ORM\JoinColumn(name="druglike_id", referencedColumnName="id")
+     */
+    private $druglike;
+
     /**
      * @var int
      *
@@ -155,5 +168,52 @@ class substances
     {
         return $this->vpressure;
     }
-}
 
+    /**
+     * Set envUsage
+     *
+     * @param \AppBundle\Entity\datalist\_env_usage $envUsage
+     *
+     * @return substances
+     */
+    public function setEnvUsage(\AppBundle\Entity\datalist\_env_usage $envUsage = null)
+    {
+        $this->env_usage = $envUsage;
+
+        return $this;
+    }
+
+    /**
+     * Get envUsage
+     *
+     * @return \AppBundle\Entity\datalist\_env_usage
+     */
+    public function getEnvUsage()
+    {
+        return $this->env_usage;
+    }
+
+    /**
+     * Set druglike
+     *
+     * @param \AppBundle\Entity\datalist\_druglike $druglike
+     *
+     * @return substances
+     */
+    public function setDruglike(\AppBundle\Entity\datalist\_druglike $druglike = null)
+    {
+        $this->druglike = $druglike;
+
+        return $this;
+    }
+
+    /**
+     * Get druglike
+     *
+     * @return \AppBundle\Entity\datalist\_druglike
+     */
+    public function getDruglike()
+    {
+        return $this->druglike;
+    }
+}

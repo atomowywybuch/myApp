@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 
 class SubstanceController extends Controller
@@ -25,9 +26,11 @@ class SubstanceController extends Controller
     //Generate Form for new Substance
     $form = $this->createFormBuilder($substance)
       ->add('name')
-      ->add('cas', TextType::class, array('attr' =>array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-      ->add('we', TextType::class, array('attr' =>array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-      ->add('vpressure', TextType::class, array('attr' =>array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+      ->add('cas', TextType::class, array('label'=> 'CAS', 'attr' =>array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+      ->add('we', TextType::class, array('label'=> 'WE', 'attr' =>array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+      ->add('vpressure', TextType::class, array('label'=> 'Prężność pary', 'attr' =>array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+      ->add('envusage', EntityType::class, array('label'=> 'Korzystanie ze środowiska', 'class' => 'AppBundle:datalist\_env_usage', 'choice_label' => 'name'))
+      ->add('druglike', EntityType::class, array('label'=> 'Prekursory narkotykowe', 'class' => 'AppBundle:datalist\_druglike', 'choice_label' => 'name'))
       ->add('Save', SubmitType::class, array('label'=> 'Stwórz', 'attr' =>array('class' => 'btn-primary', 'style' => 'margin-bottom:15px')))
       ->getForm();
 
@@ -42,12 +45,16 @@ class SubstanceController extends Controller
       $cas = $form['cas']->getData();
       $we = $form['we']->getData();
       $vpressure = $form['vpressure']->getData();
+      $envusage = $form['envusage']->getData();
+      $druglike = $form['druglike']->getData();
 
       //pass data from variables to substance object
       $substance->setName($name);
       $substance->setCas($cas);
       $substance->setWe($we);
       $substance->setVpressure($vpressure);
+      $substance->setEnvUsage($envusage);
+      $substance->setDruglike($druglike);
 
       //execute database insert
       $em = $this->getDoctrine()->getManager();
@@ -124,6 +131,10 @@ class SubstanceController extends Controller
       $substance->setCas($substance->getCas());
       $substance->setWe($substance->getWe());
       $substance->setVpressure($substance->getVpressure());
+      $substance->setEnvUsage($substance->getEnvUsage());
+      $substance->setDruglike($substance->getDruglike());
+
+
 
       //Generate Form for new Substance
       $form = $this->createFormBuilder($substance)
@@ -131,6 +142,8 @@ class SubstanceController extends Controller
         ->add('cas', TextType::class, array('attr' =>array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
         ->add('we', TextType::class, array('attr' =>array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
         ->add('vpressure', TextType::class, array('attr' =>array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+        ->add('envusage', EntityType::class, array('label'=> 'Korzystanie ze środowiska', 'class' => 'AppBundle:datalist\_env_usage', 'choice_label' => 'name'))
+        ->add('druglike', EntityType::class, array('label'=> 'Prekursory narkotykowe', 'class' => 'AppBundle:datalist\_druglike', 'choice_label' => 'name'))
         ->add('Save', SubmitType::class, array('label'=> 'Zapisz', 'attr' =>array('class' => 'btn-primary', 'style' => 'margin-bottom:15px')))
         ->getForm();
 
@@ -145,6 +158,8 @@ class SubstanceController extends Controller
         $cas = $form['cas']->getData();
         $we = $form['we']->getData();
         $vpressure = $form['vpressure']->getData();
+        $envusage = $form['envusage']->getData();
+        $druglike = $form['druglike']->getData();
 
         //find the right substance
         $em = $this->getDoctrine()->getManager();
@@ -155,6 +170,9 @@ class SubstanceController extends Controller
         $substance->setCas($cas);
         $substance->setWe($we);
         $substance->setVpressure($vpressure);
+        $substance->setEnvUsage($envusage);
+        $substance->setDruglike($druglike);
+
 
         //execute data modification
         $em->flush();

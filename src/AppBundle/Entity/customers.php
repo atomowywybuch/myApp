@@ -125,4 +125,3 @@ class customers
         return $this->creationDate;
     }
 }
-

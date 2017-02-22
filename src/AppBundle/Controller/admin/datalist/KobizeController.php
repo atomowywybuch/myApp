@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\admin\datalists;
+namespace AppBundle\Controller\admin\datalist;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

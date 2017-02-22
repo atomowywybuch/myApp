@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="page-header">Korzystanie ze środowiska</h2>
+    <a href="/admin/envusage/create" class="btn btn-success">Stwórz nowy</a>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nazwa</th>
+          <th>Stawka za kilogram</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for envusage in envusage  %}
+        <tr>
+          <th scope="row">{{envusage.id}}</th>
+          <td>{{envusage.name}}</td>
+          <td>{{envusage.rateperkg}}</td>
+        <td>
+          
+            <a href="/admin/envusage/edit/{{envusage.id}}" class="btn btn-default">Edycja</a>
+
+          </td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+{% endblock %}

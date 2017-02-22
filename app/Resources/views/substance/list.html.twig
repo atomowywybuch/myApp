@@ -12,6 +12,9 @@
           <th>CAS</th>
           <th>WE</th>
           <th>Prężność pary</th>
+          <th>Grupa Związków</th>
+          <th>Prekursory narkotykowe</th>
+          
         </tr>
       </thead>
       <tbody>
@@ -22,6 +25,9 @@
           <td>{{substance.cas}}</td>
           <td>{{substance.we}}</td>
           <td>{{substance.vpressure}}</td>
+          <td>{{substance.envusage}}</td>
+          <td>{{substance.druglike}}</td>
+
           <td>
             <a href="/substance/details/{{substance.id}}" class="btn btn-success">Podgląd</a>
             <a href="/substance/edit/{{substance.id}}" class="btn btn-default">Edycja</a>

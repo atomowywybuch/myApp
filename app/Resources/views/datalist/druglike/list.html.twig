@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="page-header">Prekursory Narkotykowe</h2>
+    <a href="/admin/druglike/create" class="btn btn-success">Stwórz nowy</a>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nazwa prekursora</th>
+          <th>CAS</th>
+          <th>Kategoria</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for druglike in druglike  %}
+        <tr>
+          <th scope="row">{{druglike.id}}</th>
+          <td>{{druglike.name}}</td>
+          <td>{{druglike.cas}}</td>
+          <td>{{druglike.category}}</td>
+          <td>
+            <a href="/admin/druglike/edit/{{druglike.id}}" class="btn btn-default">Edycja</a>
+          </td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+{% endblock %}

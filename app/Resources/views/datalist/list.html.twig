@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="page-header">Listy ogólne</h2>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+
+          <th>Nazwa listy</th>
+          <th>Opcje</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>Korzystanie ze środowiska</td>
+          <td>
+            <a href="/admin/envusage" class="btn btn-default">Edycja</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Prekursory narkotykowe</td>
+          <td>
+            <a href="/admin/druglike" class="btn btn-default">Edycja</a>
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+{% endblock %}
