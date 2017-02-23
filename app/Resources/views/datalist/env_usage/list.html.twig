@@ -3,7 +3,7 @@
 {% block body %}
 
     <h2 class="page-header">Korzystanie ze środowiska</h2>
-    <a href="/admin/envusage/create" class="btn btn-success">Stwórz nowy</a>
+    <a href="/admin/datalist/envusage/create" class="btn btn-success">Stwórz nowy</a>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -19,8 +19,8 @@
           <td>{{envusage.name}}</td>
           <td>{{envusage.rateperkg}}</td>
         <td>
-          
-            <a href="/admin/envusage/edit/{{envusage.id}}" class="btn btn-default">Edycja</a>
+
+            <a href="/admin/datalist/envusage/edit/{{envusage.id}}" class="btn btn-default">Edycja</a>
 
           </td>
 

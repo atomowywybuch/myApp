@@ -21,7 +21,7 @@ class env_usageController extends Controller
 
 
   /**
-  * @Route("/admin/envusage", name="envusage")
+  * @Route("/admin/datalist/envusage", name="envusage")
   */
 
   //List substances
@@ -39,7 +39,7 @@ class env_usageController extends Controller
   }
 
   /**
-  * @Route("/admin/envusage/create")
+  * @Route("/admin/datalist/envusage/create")
   */
 
   //Create new druglike
@@ -95,7 +95,7 @@ class env_usageController extends Controller
   }
 
   /**
-  * @Route("/admin/envusage/edit/{id}")
+  * @Route("/admin/datalist/envusage/edit/{id}")
   */
 
   //edit certain substance based on button clicked, passess the changes through request
@@ -106,14 +106,7 @@ class env_usageController extends Controller
       ->getRepository('AppBundle:datalist\_env_usage')
       ->find($id);
 
-      //This to be modified
-      $envusage->setName($envusage->getName());
-      $envusage->setRatePerKg($envusage->getRatePerKg());
-
-
-
-
-
+    
       //Generate Form for new Substance
       $form = $this->createFormBuilder($envusage)
         ->add('name')

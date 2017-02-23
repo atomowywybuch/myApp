@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class substances
 {
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\datalist\_kobize", inversedBy="substance")
+     * @ORM\JoinColumn(name="kobize_id", referencedColumnName="id")
+     */
+    private $kobize;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\datalist\_env_usage", inversedBy="substance")
@@ -215,5 +220,29 @@ class substances
     public function getDruglike()
     {
         return $this->druglike;
+    }
+
+    /**
+     * Set kobize
+     *
+     * @param \AppBundle\Entity\datalist\_kobize $kobize
+     *
+     * @return substances
+     */
+    public function setKobize(\AppBundle\Entity\datalist\_kobize $kobize = null)
+    {
+        $this->kobize = $kobize;
+
+        return $this;
+    }
+
+    /**
+     * Get kobize
+     *
+     * @return \AppBundle\Entity\datalist\_kobize
+     */
+    public function getKobize()
+    {
+        return $this->kobize;
     }
 }

@@ -3,7 +3,7 @@
 {% block body %}
 
     <h2 class="page-header">Prekursory Narkotykowe</h2>
-    <a href="/admin/druglike/create" class="btn btn-success">Stwórz nowy</a>
+    <a href="/admin/datalist/druglike/create" class="btn btn-success">Stwórz nowy</a>
 
     <table class="table table-striped">
       <thead>
@@ -22,7 +22,7 @@
           <td>{{druglike.cas}}</td>
           <td>{{druglike.category}}</td>
           <td>
-            <a href="/admin/druglike/edit/{{druglike.id}}" class="btn btn-default">Edycja</a>
+            <a href="/admin/datalist/druglike/edit/{{druglike.id}}" class="btn btn-default">Edycja</a>
           </td>
 
         </tr>

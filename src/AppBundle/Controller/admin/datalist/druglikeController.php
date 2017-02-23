@@ -23,7 +23,7 @@ class druglikeController extends Controller
 
 
   /**
-  * @Route("/admin/druglike", name="lista_prekursorow")
+  * @Route("/admin/datalist/druglike", name="lista_prekursorow")
   */
 
   //List substances
@@ -41,7 +41,7 @@ class druglikeController extends Controller
   }
 
   /**
-  * @Route("/admin/druglike/create")
+  * @Route("/admin/datalist/druglike/create")
   */
 
   //Create new druglike
@@ -99,7 +99,7 @@ class druglikeController extends Controller
   }
 
   /**
-  * @Route("/admin/druglike/edit/{id}")
+  * @Route("/admin/datalist/druglike/edit/{id}")
   */
 
   //edit certain substance based on button clicked, passess the changes through request
@@ -110,14 +110,7 @@ class druglikeController extends Controller
       ->getRepository('AppBundle:datalist\_druglike')
       ->find($id);
 
-      //This to be modified
-      $druglike->setName($druglike->getName());
-      $druglike->setCas($druglike->getCas());
-      $druglike->setcategory($druglike->getcategory());
-
-
-
-
+      
       //Generate Form for new Substance
       $form = $this->createFormBuilder($druglike)
         ->add('name')

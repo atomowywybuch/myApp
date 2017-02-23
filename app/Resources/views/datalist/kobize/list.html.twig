@@ -3,7 +3,7 @@
 {% block body %}
 
     <h2 class="page-header">Kobize</h2>
-
+    <a href="/admin/datalist/kobize/create" class="btn btn-success">Stwórz nowy</a>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -22,9 +22,7 @@
           <td>{{kobize.cas}}</td>
 
           <td>
-            <a href="/substance/details/{{kobize.id}}" class="btn btn-success">Podgląd</a>
-            <a href="/substance/edit/{{kobize.id}}" class="btn btn-default">Edycja</a>
-            <a href="/substance/delete/{{kobize.id}}" class="btn btn-danger">Usuń</a>
+            <a href="/admin/datalist/kobize/edit/{{kobize.id}}" class="btn btn-default">Edycja</a>
           </td>
 
         </tr>
