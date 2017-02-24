@@ -14,7 +14,7 @@ class kobizeController extends Controller
     /**
      * @Route("/admin/datalist/kobize", name="kobize")
      */
-     
+
     public function indexAction()
     {
       //Gets all substances to the object substances
@@ -137,7 +137,7 @@ class kobizeController extends Controller
         }
 
       //if not submitted or not valid, displays form again
-      return $this->render('datalist/env_usage/edit.html.twig', array(
+      return $this->render('datalist/kobize/edit.html.twig', array(
         'kobize' => $kobize,
         'form' => $form->createView()
       ));

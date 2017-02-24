@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css') }}">
 
         {% block stylesheets %}
 
@@ -50,6 +51,15 @@
       <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
       <script src="{{ asset('js/main.js') }}"></script>
       <script src="{{ asset('vendor/canvas/canvasjs.min.js') }}"></script>
+      <script src="{{ asset('vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+      <script>
+    $(document).ready(function() {
+        $('.js-datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    });
+</script>
+
         {% block javascripts %}
 
       {% endblock %}

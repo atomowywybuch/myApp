@@ -32,6 +32,7 @@ class SubstanceController extends Controller
       ->add('envusage', EntityType::class, array('label'=> 'Korzystanie ze środowiska', 'class' => 'AppBundle:datalist\_env_usage', 'choice_label' => 'name'))
       ->add('druglike', EntityType::class, array('label'=> 'Prekursory narkotykowe', 'class' => 'AppBundle:datalist\_druglike', 'choice_label' => 'name'))
       ->add('kobize', EntityType::class, array('label'=> 'Kobize', 'class' => 'AppBundle:datalist\_kobize', 'choice_label' => 'name'))
+      ->add('svhc', EntityType::class, array('label'=> 'SVHC', 'class' => 'AppBundle:datalist\_svhc', 'choice_label' => 'name'))
       ->add('Save', SubmitType::class, array('label'=> 'Stwórz', 'attr' =>array('class' => 'btn-primary', 'style' => 'margin-bottom:15px')))
       ->getForm();
 
@@ -49,6 +50,7 @@ class SubstanceController extends Controller
       $envusage = $form['envusage']->getData();
       $druglike = $form['druglike']->getData();
       $kobize = $form['kobize']->getData();
+      $svhc = $form['svhc']->getData();
 
       //pass data from variables to substance object
       $substance->setName($name);
@@ -58,6 +60,7 @@ class SubstanceController extends Controller
       $substance->setEnvUsage($envusage);
       $substance->setDruglike($druglike);
       $substance->setKobize($kobize);
+      $substance->setKobize($svhc);
 
       //execute database insert
       $em = $this->getDoctrine()->getManager();
@@ -129,7 +132,7 @@ class SubstanceController extends Controller
       ->getRepository('AppBundle:substances')
       ->find($id);
 
-    
+
       //Generate Form for new Substance
       $form = $this->createFormBuilder($substance)
         ->add('name')
@@ -139,6 +142,7 @@ class SubstanceController extends Controller
         ->add('envusage', EntityType::class, array('label'=> 'Korzystanie ze środowiska', 'class' => 'AppBundle:datalist\_env_usage', 'choice_label' => 'name'))
         ->add('druglike', EntityType::class, array('label'=> 'Prekursory narkotykowe', 'class' => 'AppBundle:datalist\_druglike', 'choice_label' => 'name'))
         ->add('kobize', EntityType::class, array('label'=> 'Kobize', 'class' => 'AppBundle:datalist\_kobize', 'choice_label' => 'name'))
+        ->add('svhc', EntityType::class, array('label'=> 'SVHC', 'class' => 'AppBundle:datalist\_svhc', 'choice_label' => 'name'))
         ->add('Save', SubmitType::class, array('label'=> 'Zapisz', 'attr' =>array('class' => 'btn-primary', 'style' => 'margin-bottom:15px')))
         ->getForm();
 
@@ -156,6 +160,7 @@ class SubstanceController extends Controller
         $envusage = $form['envusage']->getData();
         $druglike = $form['druglike']->getData();
         $kobize = $form['kobize']->getData();
+        $svhc = $form['svhc']->getData();
 
         //find the right substance
         $em = $this->getDoctrine()->getManager();
@@ -169,6 +174,7 @@ class SubstanceController extends Controller
         $substance->setEnvUsage($envusage);
         $substance->setDruglike($druglike);
         $substance->setKobize($kobize);
+        $substance->setSvhc($svhc);
 
 
         //execute data modification

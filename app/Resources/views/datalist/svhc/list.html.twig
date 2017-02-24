@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="page-header">SVHC</h2>
+    <a href="/admin/datalist/svhc/create" class="btn btn-success">Stwórz nowy</a>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nazwa</th>
+          <th>CAS</th>
+          <th>WE</th>
+          <th>Data implementacji</th>
+          <th>Powód</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for svhc in svhc  %}
+        <tr>
+
+          <td>{{svhc.name}}</td>
+          <td>{{svhc.cas}}</td>
+          <td>{{svhc.we}}</td>
+          <td>{{svhc.impDate|date('j.m.Y')}}</td>
+          <td>{{svhc.reason}}</td>
+
+          <td>
+            <a href="/admin/datalist/svhc/edit/{{svhc.id}}" class="btn btn-default">Edycja</a>
+          </td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+{% endblock %}
