@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="page-header">Pictograms</h2>
+    <a href="/admin/datalist/pictograms/create" class="btn btn-success">Stwórz nowy</a>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Opis</th>
+          <th>piktogram</th>
+
+
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for picto in picto  %}
+        <tr>
+
+          <td>{{picto.symbol}}</td>
+          <td>{{picto.description}}</td>
+
+          <td><img src="/img/pictograms/{{picto.imagename}}"</img></td>
+          <td>
+            <a href="/admin/datalist/pictograms/edit/{{picto.id}}" class="btn btn-default">Edycja</a>
+            <a href="/admin/datalist/pictograms/delete/{{picto.id}}" class="btn btn-danger">Usuń</a>
+          </td>
+
+
+
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+{% endblock %}
