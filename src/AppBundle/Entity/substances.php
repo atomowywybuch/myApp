@@ -14,6 +14,12 @@ class substances
 {
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\datalist\_reach17", inversedBy="substance")
+     * @ORM\JoinColumn(name="reach17_id", referencedColumnName="id")
+     */
+    private $reach17;
+
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\datalist\_svhc", inversedBy="substance")
      * @ORM\JoinColumn(name="svhc_id", referencedColumnName="id")
      */
@@ -275,5 +281,29 @@ class substances
     public function getSvhc()
     {
         return $this->svhc;
+    }
+
+    /**
+     * Set reach17
+     *
+     * @param \AppBundle\Entity\datalist\_reach17 $reach17
+     *
+     * @return substances
+     */
+    public function setReach17(\AppBundle\Entity\datalist\_reach17 $reach17 = null)
+    {
+        $this->reach17 = $reach17;
+
+        return $this;
+    }
+
+    /**
+     * Get reach17
+     *
+     * @return \AppBundle\Entity\datalist\_reach17
+     */
+    public function getReach17()
+    {
+        return $this->reach17;
     }
 }

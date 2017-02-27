@@ -73,3 +73,12 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# Wich file handler
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        pictograms_image:
+            uri_prefix:         /img/pictograms
+            upload_destination: '%kernel.root_dir%/../web/img/pictograms'
