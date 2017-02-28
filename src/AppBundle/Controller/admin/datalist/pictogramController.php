@@ -56,18 +56,7 @@ class pictogramController extends Controller
       //Validate that data are correct
       if($form->isSubmitted() && $form->isValid()){
 
-        //assign data from the Form to variables
-        $pictoSymbol = $form['symbol']->getData();
-        $pictoDescription = $form['description']->getData();
-        $pictoImage = $form['imagefile']->getData();
-
-
-        //pass data from variables to substance object
-        $picto->setSymbol($pictoSymbol);
-        $picto->setDescription($pictoDescription);
-        $picto->setImageName($pictoImage);
-        $picto->setUpdatedAt($now);
-
+        $picto = $form->getData();
 
         //execute database insert
         $em = $this->getDoctrine()->getManager();
@@ -77,7 +66,7 @@ class pictogramController extends Controller
         //success notification
         $this->addFlash(
           'notice',
-          'picto dodany' 
+          'picto dodany'
         );
 
         //return to list
@@ -118,18 +107,7 @@ class pictogramController extends Controller
       //Validate that data are correct
       if($form->isSubmitted() && $form->isValid()){
 
-        //assign data from the Form to variables
-        $pictoSymbol = $form['symbol']->getData();
-        $pictoDescription = $form['description']->getData();
-        $pictoImage = $form['imagefile']->getData();
-
-
-        //pass data from variables to substance object
-        $picto->setSymbol($pictoSymbol);
-        $picto->setDescription($pictoDescription);
-        $picto->setImageName($pictoImage);
-        $picto->setUpdatedAt($now);
-
+      $picto = $form->getData();
 
         //execute database insert
         $em = $this->getDoctrine()->getManager();

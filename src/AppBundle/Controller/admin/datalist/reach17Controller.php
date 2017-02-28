@@ -55,17 +55,7 @@ class reach17Controller extends Controller
       //Validate that data are correct
       if($form->isSubmitted() && $form->isValid()){
 
-        //assign data from the Form to variables
-        $reach17Name = $form['name']->getData();
-        $reach17Cas = $form['cas']->getData();
-        $reach17We = $form['we']->getData();
-        $reach17Conditions = $form['conditions']->getData();
-
-        //pass data from variables to substance object
-        $reach17->setName($reach17Name);
-        $reach17->setCas($reach17Cas);
-        $reach17->setWe($reach17We);
-        $reach17->setConditions($reach17Conditions);
+        $reach17 = $form->getData();
 
         //execute database insert
         $em = $this->getDoctrine()->getManager();
@@ -116,17 +106,7 @@ class reach17Controller extends Controller
         //Validate that data are correct
         if($form->isSubmitted() && $form->isValid()){
 
-          //assign data from the Form to variables
-          $reach17Name = $form['name']->getData();
-          $reach17Cas = $form['cas']->getData();
-          $reach17We = $form['we']->getData();
-          $reach17Conditions = $form['conditions']->getData();
-
-          //pass data from variables to substance object
-          $reach17->setName($reach17Name);
-          $reach17->setCas($reach17Cas);
-          $reach17->setWe($reach17We);
-          $reach17->setConditions($reach17Conditions);
+          $reach17 = $form->getData();
 
           //execute database insert
           $em = $this->getDoctrine()->getManager();

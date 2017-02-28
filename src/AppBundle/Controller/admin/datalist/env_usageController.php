@@ -62,15 +62,7 @@ class env_usageController extends Controller
     //Validate that data are correct
     if($form->isSubmitted() && $form->isValid()){
 
-      //assign data from the Form to variables
-      $envUsageName = $form['name']->getData();
-      $envUsageRate = $form['rateperkg']->getData();
-
-
-      //pass data from variables to substance object
-      $envusage->setName($envUsageName);
-      $envusage->setRatePerKg($envUsageRate);
-
+      $envusage = $form->getData();
 
       //execute database insert
       $em = $this->getDoctrine()->getManager();
@@ -106,7 +98,7 @@ class env_usageController extends Controller
       ->getRepository('AppBundle:datalist\_env_usage')
       ->find($id);
 
-    
+
       //Generate Form for new Substance
       $form = $this->createFormBuilder($envusage)
         ->add('name')
@@ -120,16 +112,7 @@ class env_usageController extends Controller
       //Validate that data are correct
       if($form->isSubmitted() && $form->isValid()){
 
-        //assign data from the Form to variables
-        $envUsageName = $form['name']->getData();
-        $envUsageRate = $form['rateperkg']->getData();
-
-        //pass data from variables to substance object
-
-        $envusage->setName($envUsageName);
-        $envusage->setRatePerKg($envUsageRate);
-
-
+        $envusage = $form->getData();
 
         //execute database insert
         $em = $this->getDoctrine()->getManager();

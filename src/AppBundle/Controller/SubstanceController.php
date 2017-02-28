@@ -42,25 +42,7 @@ class SubstanceController extends Controller
     //Validate that data are correct
     if($form->isSubmitted() && $form->isValid()){
 
-      //assign data from the Form to variables
-      $name = $form['name']->getData();
-      $cas = $form['cas']->getData();
-      $we = $form['we']->getData();
-      $vpressure = $form['vpressure']->getData();
-      $envusage = $form['envusage']->getData();
-      $druglike = $form['druglike']->getData();
-      $kobize = $form['kobize']->getData();
-      $svhc = $form['svhc']->getData();
-
-      //pass data from variables to substance object
-      $substance->setName($name);
-      $substance->setCas($cas);
-      $substance->setWe($we);
-      $substance->setVpressure($vpressure);
-      $substance->setEnvUsage($envusage);
-      $substance->setDruglike($druglike);
-      $substance->setKobize($kobize);
-      $substance->setKobize($svhc);
+      $substance = $form->getData();
 
       //execute database insert
       $em = $this->getDoctrine()->getManager();
@@ -152,32 +134,11 @@ class SubstanceController extends Controller
       //Validate that data are correct
       if($form->isSubmitted() && $form->isValid()){
 
-        //assign data from the Form to variables
-        $name = $form['name']->getData();
-        $cas = $form['cas']->getData();
-        $we = $form['we']->getData();
-        $vpressure = $form['vpressure']->getData();
-        $envusage = $form['envusage']->getData();
-        $druglike = $form['druglike']->getData();
-        $kobize = $form['kobize']->getData();
-        $svhc = $form['svhc']->getData();
-
-        //find the right substance
-        $em = $this->getDoctrine()->getManager();
-        $substance = $em->getRepository('AppBundle:substances')->find($id);
-
-        //prepare data modification
-        $substance->setName($name);
-        $substance->setCas($cas);
-        $substance->setWe($we);
-        $substance->setVpressure($vpressure);
-        $substance->setEnvUsage($envusage);
-        $substance->setDruglike($druglike);
-        $substance->setKobize($kobize);
-        $substance->setSvhc($svhc);
-
+      $substance = $form->getData();
 
         //execute data modification
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($substance);
         $em->flush();
 
         //success notodication

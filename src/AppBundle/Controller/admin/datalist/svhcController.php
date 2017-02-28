@@ -63,19 +63,7 @@ class svhcController extends Controller
       //Validate that data are correct
       if($form->isSubmitted() && $form->isValid()){
 
-        //assign data from the Form to variables
-        $svhcName = $form['name']->getData();
-        $svhcCas = $form['cas']->getData();
-        $svhcWe = $form['we']->getData();
-        $svhcImDate = $form['imp_date']->getData();
-        $svhcReason = $form['reason']->getData();
-
-        //pass data from variables to substance object
-        $svhc->setName($svhcName);
-        $svhc->setCas($svhcCas);
-        $svhc->setWe($svhcWe);
-        $svhc->setImpDate($svhcImDate);
-        $svhc->setReason($svhcReason);
+        $svhc = $form->getData();
 
         //execute database insert
         $em = $this->getDoctrine()->getManager();
@@ -134,19 +122,7 @@ class svhcController extends Controller
         //Validate that data are correct
         if($form->isSubmitted() && $form->isValid()){
 
-          //assign data from the Form to variables
-          $svhcName = $form['name']->getData();
-          $svhcCas = $form['cas']->getData();
-          $svhcWe = $form['we']->getData();
-          $svhcImDate = $form['imp_date']->getData();
-          $svhcReason = $form['reason']->getData();
-
-          //pass data from variables to substance object
-          $svhc->setName($svhcName);
-          $svhc->setCas($svhcCas);
-          $svhc->setWe($svhcWe);
-          $svhc->setImpDate($svhcImDate);
-          $svhc->setReason($svhcReason);
+        $svhc = $form->getData();
 
           //execute database insert
           $em = $this->getDoctrine()->getManager();

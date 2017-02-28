@@ -53,15 +53,7 @@ class kobizeController extends Controller
       //Validate that data are correct
       if($form->isSubmitted() && $form->isValid()){
 
-        //assign data from the Form to variables
-        $kobizeNumber = $form['number']->getData();
-        $kobizeName = $form['name']->getData();
-        $kobizeCas = $form['cas']->getData();
-
-        //pass data from variables to substance object
-        $kobize->setNumber($kobizeNumber);
-        $kobize->setName($kobizeName);
-        $kobize->setcas($kobizeCas);
+        $kobize = $form->getData();
 
         //execute database insert
         $em = $this->getDoctrine()->getManager();
@@ -111,15 +103,7 @@ class kobizeController extends Controller
         //Validate that data are correct
         if($form->isSubmitted() && $form->isValid()){
 
-          //assign data from the Form to variables
-          $kobizeNumber = $form['number']->getData();
-          $kobizeName = $form['name']->getData();
-          $kobizeCas = $form['cas']->getData();
-
-          //pass data from variables to substance object
-          $kobize->setNumber($kobizeNumber);
-          $kobize->setName($kobizeName);
-          $kobize->setCas($kobizeCas);
+          $kobize = $form->getData();
 
           //execute database insert
           $em = $this->getDoctrine()->getManager();

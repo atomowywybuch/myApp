@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="page-header">Kobize</h2>
+    <a href="/admin/users/create" class="btn btn-success">Stwórz Użytkownika</a>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nazwa użytkownika</th>
+          <th>Email</th>
+          <th>Rola</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for users in users  %}
+        <tr>
+
+          <td>{{users.username}}</td>
+          <td>{{users.email}}</td>
+          <td>{{users.role}}</td>
+
+          <td>
+            <a href="/admin/users/edit/{{users.id}}" class="btn btn-default">Edycja</a>
+          </td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+{% endblock %}

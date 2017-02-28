@@ -65,16 +65,7 @@ class druglikeController extends Controller
     //Validate that data are correct
     if($form->isSubmitted() && $form->isValid()){
 
-      //assign data from the Form to variables
-      $drugLikeName = $form['name']->getData();
-      $drugLikeCas = $form['cas']->getData();
-      $drugLikeCategory = $form['category']->getData();
-
-      //pass data from variables to substance object
-      $druglike->setName($drugLikeName);
-      $druglike->setCAS($drugLikeCas);
-      $druglike->setcategory($drugLikeCategory);
-
+      $druglike = $form->getData();
 
       //execute database insert
       $em = $this->getDoctrine()->getManager();
@@ -110,7 +101,7 @@ class druglikeController extends Controller
       ->getRepository('AppBundle:datalist\_druglike')
       ->find($id);
 
-      
+
       //Generate Form for new Substance
       $form = $this->createFormBuilder($druglike)
         ->add('name')
@@ -125,19 +116,9 @@ class druglikeController extends Controller
       //Validate that data are correct
       if($form->isSubmitted() && $form->isValid()){
 
-        //assign data from the Form to variables
-        //assign data from the Form to variables
-        $drugLikeName = $form['name']->getData();
-        $drugLikeCas = $form['cas']->getData();
-        $drugLikeCategory = $form['category']->getData();
-
-        //pass data from variables to substance object
-        $druglike->setName($drugLikeName);
-        $druglike->setCAS($drugLikeCas);
-        $druglike->setcategory($drugLikeCategory);
-
-
-        //execute database insert
+      //pass data from variables to substance object
+        $druglike = $form->getData();
+      //execute database insert
         $em = $this->getDoctrine()->getManager();
         $em->persist($druglike);
         $em->flush();
